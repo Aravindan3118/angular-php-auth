@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'ng-php-auth';
+  constructor(private router: Router) { }
+  signOut(){
+    localStorage.removeItem('authUserName');
+    this.router.navigate(['/login']);
+  }
 }
